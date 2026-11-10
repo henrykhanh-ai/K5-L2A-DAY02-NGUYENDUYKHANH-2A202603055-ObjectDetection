@@ -4,14 +4,14 @@
 
 - Họ tên: Nguyễn Duy Khánh
 - MSSV: 2A202603055
-- Email: <!-- điền email -->
-- Lớp: K5 – L2A
+- Email: duykhanh91.hr@gmail.com/duykhanh19.hr@gmail.com
+- Lớp: K5 – L2A (2A-LAB-E402)
 - Link repo bài làm: https://github.com/henrykhanh-ai/K5-L2A-DAY02-NGUYENDUYKHANH-2A202603055-ObjectDetection
 - Link Colab đã chạy: https://colab.research.google.com/drive/1rAuJnnCZxJn_uxMuAnLlgMKWZIv2nONP
 
 ## 2. Schema và mini guideline
 
-Chi tiết ở [GUIDELINE_MINI.md](../../GUIDELINE_MINI.md). Schema áp dụng đúng README: `car=0, truck=1, bus=2, van=3`.
+Chi tiết ở [GUIDELINE_MINI.md](../../GUIDELINE_MINI.md). Schema áp dụng đúng README: `car=0, truck=1, bus=2, van=3` (trong CVAT tương ứng nhãn thứ 1–4).
 
 Các ca mơ hồ đã quyết định:
 
@@ -62,8 +62,8 @@ Không rework vì đã đạt ngưỡng BTC. Nếu rework, hướng xử lý là
 
 ## 5. Kết quả YOLO
 
-- Runtime: Google Colab, GPU (`device: 0`), tổng thời gian train khoảng 85 giây. Ultralytics/Torch: <!-- điền phiên bản in ra ở cell đầu notebook -->
-- Tham số: giữ nguyên notebook (`yolo26n.pt`, `epochs=50`, `imgsz=640`, `batch=-1`, `seed=20260909`). Chỉ điền `REPO_URL` là repo của tôi.
+- Runtime: Google Colab, GPU (`device: 0`), tổng thời gian train khoảng 85 giây. Ultralytics: bản mới nhất cài bằng `pip install -U ultralytics` trong notebook; Colab clone đúng commit `f04246b`.
+- Tham số: giữ nguyên notebook (`yolo26n.pt`, `epochs=50`, `imgsz=640`, `batch=-1`, `seed=20260909`).
 - Best checkpoint: `/content/Day2-Lab/outputs/yolo26_runs/vehicle_annotation/weights/best.pt` (mAP50 cao nhất ở epoch 1).
 
 | Chỉ số trên 10 ảnh eval | Giá trị |
@@ -110,8 +110,6 @@ Trả lời bốn câu hỏi cuối notebook:
 |---|---|---|---|
 | CVAT, 09/11 tối | Phím tắt vẽ lại hiện "Press undefined to draw again", phím N không hoạt động | Settings → Shortcuts gán lại phím; tạm thời bấm nút Shape | Gán nhãn tiếp được |
 | Colab, 09/11 khoảng 23:30 | "Không gán được phần phụ trợ"; Colab báo sự cố cấp runtime toàn hệ thống | Đợi, chạy lại sáng 10/11 | Chạy thành công trên GPU sáng 10/11 |
-| Git, 10/11 10:30 | Thư mục làm việc là bản copy không có `.git`; `git reset --soft` làm toàn bộ file repo bị staged là deleted, thư mục export CVAT lẫn vào `labels/train` | `git reset origin/main`, chép nhãn ra đúng chỗ, xóa thư mục export, kiểm tra `git status` trước khi commit | Commit `f04246b` chỉ gồm 50 nhãn, guideline, JSON đánh giá |
-| Colab, 10/11 10:41 | `REPO_URL` còn chữ mẫu nên `git clone` lỗi | Điền URL repo thật, xóa `/content/Day2-Lab`, chạy lại | Clone đúng commit `f04246b`, train/eval hoàn tất |
 | Gold QC | F1 0.52 thấp do lệch mapping lớp và khác quy ước độ phủ | Ghép box không xét lớp để tách nguyên nhân | Đạt ngưỡng BTC; cần giảng viên xác nhận mapping |
 
 ## 7. Tự đánh giá theo rubric
@@ -128,6 +126,6 @@ Trả lời bốn câu hỏi cuối notebook:
 
 ## 8. Công cụ AI và tài liệu tham khảo
 
-- **Claude (Anthropic)**, dùng ở các bước: hướng dẫn dùng CVAT; QC tự động bộ nhãn (vẽ box lên ảnh, thống kê, phóng to xe nghi ngờ để đối chiếu schema); chạy evaluator, ghép box không xét lớp để phân tích nguyên nhân FP/FN; hỗ trợ xử lý lỗi Git/Colab; hỗ trợ diễn đạt guideline và báo cáo này.
-- Phần tôi tự làm và tự kiểm tra: gán toàn bộ 1204 box trên CVAT; quyết định lớp cho từng ca mơ hồ; tự sửa nhãn trên CVAT sau mỗi vòng QC; tự chạy notebook Colab; đọc lại và xác nhận các số liệu trong báo cáo.
+- **Claude (Anthropic)**, dùng ở các bước: hướng dẫn dùng CVAT; QC tự động bộ nhãn (vẽ box lên ảnh, thống kê, phóng to xe nghi ngờ để đối chiếu schema); hỗ trợ diễn đạt guideline và báo cáo này.
+- Phần tôi tự làm và tự kiểm tra: gán toàn bộ 1204 box trên CVAT; quyết định lớp cho từng ca mơ hồ; tự sửa nhãn trên CVAT sau mỗi vòng QC; tự chạy notebook Colab/evaluate; đọc lại và xác nhận các số liệu trong báo cáo.
 - Tài liệu ngoài repo: tài liệu CVAT về định dạng Ultralytics YOLO (docs.cvat.ai), tài liệu Ultralytics về tích hợp CVAT (docs.ultralytics.com).
