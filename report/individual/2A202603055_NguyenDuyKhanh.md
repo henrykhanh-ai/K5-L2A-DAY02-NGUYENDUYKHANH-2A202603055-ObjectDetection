@@ -4,7 +4,7 @@
 
 - Họ tên: Nguyễn Duy Khánh
 - MSSV: 2A202603055
-- Email: duykhanh91.hr@gmail.com/duykhanh19.hr@gmail.com
+- Email:  26ai.khanhnd5@vinuni.edu.vn
 - Lớp: K5 – L2A (2A-LAB-E402)
 - Link repo bài làm: https://github.com/henrykhanh-ai/K5-L2A-DAY02-NGUYENDUYKHANH-2A202603055-ObjectDetection
 - Link Colab đã chạy: https://colab.research.google.com/drive/1rAuJnnCZxJn_uxMuAnLlgMKWZIv2nONP
